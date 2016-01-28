@@ -51,7 +51,7 @@ public class GravesLSTMCharModellingExample {
 		int miniBatchSize = 32;						//Size of mini batch to use when  training
 		int examplesPerEpoch = 50 * miniBatchSize;	//i.e., how many examples to learn on between generating samples
 		int exampleLength = 100;					//Length of each training example
-		int numEpochs = 30;							//Total number of training + sample generation epochs
+		int numEpochs = 100;							//Total number of training + sample generation epochs
 		int nSamplesToGenerate = 4;					//Number of samples to generate after each training epoch
 		int nCharactersToSample = 300;				//Length of each sample to generate
 		String generationInitialization = null;		//Optional character initialization; a random character is used if null
@@ -136,7 +136,7 @@ public class GravesLSTMCharModellingExample {
 		//String url = "http://www.gutenberg.org/cache/epub/2229/pg2229.txt";
 		String url = "http://www.gutenberg.org/cache/epub/2229/pg2229.txt";
 		String tempDir = System.getProperty("java.io.tmpdir");
-		String fileLocation = tempDir + "/Shakespeare.txt";	//Storage location from downloaded file
+		String fileLocation = tempDir + "/trainingtext.txt";	//Storage location from downloaded file
 		File f = new File(fileLocation);
 		if( !f.exists() ){
 			FileUtils.copyURLToFile(new URL(url), f);
@@ -145,7 +145,7 @@ public class GravesLSTMCharModellingExample {
 			System.out.println("Using existing text file at " + f.getAbsolutePath());
 		}
 		
-		if(!f.exists()) throw new IOException("File does not exist: " + fileLocation);	//Download problem?
+		if(!f.exists()) throw new IOException("File doefileLocations not exist: " + fileLocation);	//Download problem?
 		
 		char[] validCharacters = CharacterIterator.getMinimalCharacterSet();	//Which characters are allowed? Others will be removed
 		return new CharacterIterator(fileLocation, Charset.forName("UTF-8"),
