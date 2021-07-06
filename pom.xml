@@ -11,7 +11,7 @@
         <nd4j.version>0.4-rc3.8</nd4j.version>
         <dl4j.version>	0.4-rc3.8</dl4j.version>
         <canova.version>0.0.0.17</canova.version>
-        <jackson.version>2.5.1</jackson.version>
+        <jackson.version>2.12.3</jackson.version>
     </properties>
 
 
